@@ -1,3 +1,7 @@
 <?php
-    echo "Hi there!";
-    echo "Try to push that.";
+
+require_once 'php/CWash.php';
+
+$cWash = new CWash();
+
+print_r($cWash->getData());

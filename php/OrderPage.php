@@ -106,13 +106,4 @@ class OrderedCoffee
         }
         return $content;
     }
-
-    function connectToDB()
-    {
-        $db = new DB();
-        $db = $db->connectDB();
-        $db->exec("set names utf8");
-        return $db;
-    }
 }
-?>

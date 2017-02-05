@@ -10,4 +10,3 @@
     $sql = "DELETE FROM `buying` WHERE `id_order` = ?";
     $stmt = $db->prepare($sql);
     $stmt->execute(array($id_order));
-?>

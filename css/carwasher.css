@@ -1,0 +1,198 @@
+@font-face {
+    font-family: 'Arvo';
+    src: local('Arvo'), url('../fonts/arvo.woff2') format('woff2'), url('../fonts/arvo.woff') format('woff'), url('../fonts/arvo.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Arvo';
+    src: local('Arvo Italic'), local('Arvo-Italic'), url('../fonts/arvoitalic.woff2') format('woff2'), url('../fonts/arvoitalic.woff') format('woff'), url('../fonts/arvoitalic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Arvo';
+    src: local('Arvo Bold'), local('Arvo-Bold'), url('../fonts/arvobold.woff2') format('woff2'), url('../fonts/arvobold.woff') format('woff'), url('../fonts/arvobold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Arvo';
+    src: local('Arvo Bold Italic'), local('Arvo-BoldItalic'), url('../fonts/arvobolditalic.woff2') format('woff2'), url('../fonts/arvobolditalic.woff') format('woff'), url('../fonts/arvobolditalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+
+body, div, p {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #FDF9EC;
+}
+
+.wrapper {
+    width: 750px;
+    height: auto;
+    margin: 0 auto;
+    background-color: #99D5EA;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 10px;
+}
+
+.header {
+    width: 100%;
+    height: 260px;
+}
+
+.wall {
+    width: 100%;
+    height: 80%;
+    background-image: url("../images/wall.jpg");
+    background-size: cover;
+    box-shadow:
+        0 1px 0 rgba(255,255,255,.2),
+        inset 0 4px 5px rgba(0,0,0,.6),
+        inset 0 1px 0 rgba(0,0,0,.6);
+}
+
+.menu {
+    width: 100%;
+    height: 20%;
+    background-color: #446ED5;
+    box-shadow: 0 0 10px;
+}
+
+.mitem {
+    width: 25%;
+    height: 100%;
+    float: left;
+}
+
+.mitem>a>p {
+    color: white;
+    text-align: center;
+    font-size: 1.3em;
+    padding-top: 5%;
+    font-family: 'Arvo';
+}
+
+.mitem>a {
+    text-decoration: none;
+}
+
+.content {
+    width: 100%;
+    height: auto;
+    float: left;
+    background-color: #99D5EA;
+    box-shadow:
+            0 1px 0 rgba(255,255,255,.2),
+            inset 0 4px 5px rgba(0,0,0,.6),
+            inset 0 1px 0 rgba(0,0,0,.6);
+    padding-bottom: 30px;
+}
+
+.info {
+    color: #252E31;
+    padding: 10px 20px;
+    padding-top: 30px;
+}
+
+.infob {
+    color: #252E31;
+    padding: 10px 20px;
+    padding-top: 30px;
+    float: left;
+}
+
+.atten {
+    font-size: 1.2em;
+    text-decoration: underline;
+    color: black;
+    padding-bottom: 20px;
+}
+
+.class {
+    text-indent: 10px;
+    font-size: 1.1em;
+    padding-bottom: 10px;
+}
+
+.group {
+    text-indent: 20px;
+}
+
+.cars {
+    padding-left: 30px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.infotext {
+    text-indent: 10px;
+    font-size: 1.08em;
+    text-align: justify;
+
+}
+
+.table {
+    padding-top: 20px;
+    width: 100%;
+    padding-left: 5%;
+    font-size: 1.1em;
+    text-align: center;
+}
+
+.row {
+    width: 90%;
+    margin-bottom: 4px;
+    float: left;
+}
+
+.namesell {
+    background-color: #446ED5;
+    width: 39%;
+    float: left;
+}
+
+.sell {
+    background-color: #446ED5;
+    width: 14%;
+    float: left;
+}
+
+.headline {
+    box-shadow: 0 0 8px;
+    background-color: #446ED5;
+    width: 99%;
+    margin-top: 10px;
+    float: left;
+}
+
+.row>div {
+
+    margin-right: 1%;
+    box-shadow: 0 0 8px;
+    margin-top: 10px;
+}
+
+.sc {
+    background-color: #DABE6C;
+}
+
+
+.footer {
+    width: 100%;
+    height: 80px;
+    background-color: #446ED5;
+    box-shadow: 0 0 10px;
+    float: left;
+    padding-top: 3%;
+}
+
+.footer>p {
+    text-align: center;
+}

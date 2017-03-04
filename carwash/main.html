@@ -10,7 +10,7 @@
     <div class="wrapper">
         <div class="header">
             <div class="wall">
-                <img src="../images/logo.png" />
+                <img id="logo" src="../images/logo.png" />
             </div>
 
             <div class="menu">
@@ -26,15 +26,18 @@
                 <p class="infotext">Мы рады приветствовать Вас в нашем автомоечном комплексе. Высокое качество мойки и комфорт клиента - наши основные приоритеты . К Вашим услугам 6 автомоечных боксов и комфортная комната отдыха с бесплатным Wi-fi, где вы можете расслабиться, попробовать вкуснейший кофе и домашнюю еды. Так же работает онлайн бронирование и бронирование по телефону, чтобы Вам не пришлось ожидать очереди.</p>
             </div>
 
+            <form id="mform">
+
             <div class="table">
                 <div class="row">
                     <div class="namesell">Наименование услуг</div>
-                    <div class="sell">Группа 1</div>
-                    <div class="sell">Группа 2</div>
-                    <div class="sell">Группа 3</div>
-                    <div class="sell">Группа 4</div>
+                    <div class="sell">Группа 1 <input  type="checkbox" /></div>
+                    <div class="sell">Группа 2 <input  type="checkbox" /></div>
+                    <div class="sell">Группа 3 <input  type="checkbox" /></div>
+                    <div class="sell">Группа 4 <input  type="checkbox" /></div>
+                    <div class="cbox"></div>
                 </div>
-
+1
                     <!--Sample -->
                 <div class="row">
                     <div class="namesell sc">КОМПЛЕКС (кузов, пороги, химия, воздух, насухо, коврики, влажная уборка, пылесос)</div>
@@ -42,6 +45,7 @@
                     <div class="sell sc">350</div>
                     <div class="sell sc">400</div>
                     <div class="sell sc">450</div>
+                    <div class="cbox"><input  type="checkbox" /></div>
                 </div>
 
                 <div class="row">
@@ -55,6 +59,7 @@
                     <div class="sell sc">350</div>
                     <div class="sell sc">400</div>
                     <div class="sell sc">450</div>
+                    <div class="cbox"><input  type="checkbox" /></div>
                 </div>
 
                 <div class="row">
@@ -68,6 +73,7 @@
                     <div class="sell sc">350</div>
                     <div class="sell sc">400</div>
                     <div class="sell sc">450</div>
+                    <div class="cbox"><input  type="checkbox" /></div>
                 </div>
                 <div class="row">
                     <div class="namesell sc">КОМПЛЕКС (кузов, пороги, химия, воздух, насухо, коврики, влажная уборка, пылесос)</div>
@@ -75,8 +81,24 @@
                     <div class="sell sc">350</div>
                     <div class="sell sc">400</div>
                     <div class="sell sc">450</div>
+                    <div class="cbox"><input  type="checkbox" /></div>
                 </div>
             </div>
+
+                <div class="formdata">
+                    <p>Ваше имя:
+                        <input type="text" />
+                    </p>
+
+                    <p>Ваше телефон:
+                        <input type="text" />
+                    </p>
+
+                    <p>Дата
+                        <input type="text" />
+                    </p>
+                </div>
+            </form>
 
             <div class="infob">
                 <p class="atten">Внимание: стоимость мойки автомобиля 31 декабря каждого года на 100р больше стандартной цены.</p>

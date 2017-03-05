@@ -41,10 +41,10 @@ $cw = new CWash();
             <div class="table">
                 <div class="row">
                     <div class="namesell">Наименование услуг</div>
-                    <div class="sell">Группа 1 <input  type="checkbox" /></div>
-                    <div class="sell">Группа 2 <input  type="checkbox" /></div>
-                    <div class="sell">Группа 3 <input  type="checkbox" /></div>
-                    <div class="sell">Группа 4 <input  type="checkbox" /></div>
+                    <div class="sell">Группа 1 <input  name="A" type="checkbox" /></div>
+                    <div class="sell">Группа 2 <input  name="B" type="checkbox" /></div>
+                    <div class="sell">Группа 3 <input  name="C" type="checkbox" /></div>
+                    <div class="sell">Группа 4 <input  name="D" type="checkbox" /></div>
                     <div class="cbox"></div>
                 </div>
 
@@ -82,7 +82,7 @@ $cw = new CWash();
                     </p>
 
                     <p class="fstring">Дата:
-                        <input name="data" type="text" />
+                        <input name="date" type="text" />
                     </p>
                     <input type="submit" value="Записаться" />
                 </div>

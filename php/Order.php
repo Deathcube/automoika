@@ -1,26 +1,55 @@
 <?php
-    session_start();
     require_once "DB.php";
 
-    $id_coffee = $_POST["id"];
-    $id_client = $_SESSION["id_user"];
+    $a = $_POST;
+    $v = $a;
 
-    $time = date("Y-m-d");
+    $main_services = null;
+    $extra_services = null;
+    $cleaner_services = null;
+    $car = 'A';
+    foreach ($_POST as $item => $value){
+        if(strstr($item, 'extra_service')){
+            $id = substr($item, 13, strlen($item));
+            $extra_services .= $id.";";
+        }
 
-    foreach ($_POST['main_service_check_box']){
-        
+        if(strstr($item, 'main_service')){
+            $id = substr($item, 12, strlen($item));
+            $main_services .= $id.";";
+        }
+
+        if(strstr($item, 'cleaner_service')){
+            $id = substr($item, 15, strlen($item));
+            $cleaner_services .= $id.";";
+        }
+        if($item == 'A'||$item == 'B'||$item == 'C'||$item == 'D'){
+            $car = $item;
+        }
+
     }
 
+    $name = $_POST['name'];
+    $phone = $_POST['phone'];
+    $date = $_POST['date'];
+
+
     $db = new DB();
-    $db = $db->connectDB();
-    $db->exec("set names utf8");
+    $db = $db->dbConnect();
 
     $array = array(
-        "id_coffee" => $id_coffee,
-        "id_client" => $id_clientw,
-        "time" => $time
+        "main_services" => $main_services,
+        "cleaner" => $cleaner_services,
+        "extra_services" => $extra_services,
+        "username" => $name,
+        "phone" => $phone,
+        "date" => $date,
+        "car" => $car
+
     );
 
-    $sql = "INSERT INTO `buying`(`id_client`,`id_coffee`,`time`) VALUES(:id_client, :id_coffee, :time)";
+    $sql = "INSERT INTO `automoika`.`order`(`main_service`,`cleaner`,`extra_services`,`username`,`phone`,`date`,`car`) 
+                  VALUES(:main_services, :cleaner, :extra_services, :username, :phone, :date, :car)";
+
     $stmt = $db->prepare($sql);
     $stmt->execute($array);

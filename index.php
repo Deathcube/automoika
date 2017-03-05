@@ -1,2 +1,2 @@
 <?php
-    header('Location: carwash/main.html');
+   header('Location: carwash/main.php');

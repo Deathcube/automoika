@@ -1,3 +1,13 @@
+<?php
+
+require_once "../php/CWash.php";
+
+$cw = new CWash();
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,52 +47,29 @@
                     <div class="sell">Группа 4 <input  type="checkbox" /></div>
                     <div class="cbox"></div>
                 </div>
-1
+
                     <!--Sample -->
-                <div class="row">
-                    <div class="namesell sc">КОМПЛЕКС (кузов, пороги, химия, воздух, насухо, коврики, влажная уборка, пылесос)</div>
-                    <div class="sell sc">300</div>
-                    <div class="sell sc">350</div>
-                    <div class="sell sc">400</div>
-                    <div class="sell sc">450</div>
-                    <div class="cbox"><input  type="checkbox" /></div>
-                </div>
+                <?php
+                    echo $cw->getMainServiceTableContent();
+                ?>
 
                 <div class="row">
                     <div class="headline">Дополнительные услуги</div>
                 </div>
 
                     <!--Sample -->
-                <div class="row">
-                    <div class="namesell sc">КОМПЛЕКС (кузов, пороги, химия, воздух, насухо, коврики, влажная уборка, пылесос)</div>
-                    <div class="sell sc">300</div>
-                    <div class="sell sc">350</div>
-                    <div class="sell sc">400</div>
-                    <div class="sell sc">450</div>
-                    <div class="cbox"><input  type="checkbox" /></div>
-                </div>
+                <?php
+                    echo $cw->getExtraServiceTableContent();
+                ?>
 
                 <div class="row">
                     <div class="headline">Химчистка</div>
                 </div>
 
                     <!--Sample -->
-                <div class="row">
-                    <div class="namesell sc">КОМПЛЕКС (кузов, пороги, химия, воздух, насухо, коврики, влажная уборка, пылесос)</div>
-                    <div class="sell sc">300</div>
-                    <div class="sell sc">350</div>
-                    <div class="sell sc">400</div>
-                    <div class="sell sc">450</div>
-                    <div class="cbox"><input  type="checkbox" /></div>
-                </div>
-                <div class="row">
-                    <div class="namesell sc">КОМПЛЕКС (кузов, пороги, химия, воздух, насухо, коврики, влажная уборка, пылесос)</div>
-                    <div class="sell sc">300</div>
-                    <div class="sell sc">350</div>
-                    <div class="sell sc">400</div>
-                    <div class="sell sc">450</div>
-                    <div class="cbox"><input  type="checkbox" /></div>
-                </div>
+                <?php
+                    echo $cw->getCleanerServiceTableContent();
+                ?>
             </div>
 
                 <div class="formdata">

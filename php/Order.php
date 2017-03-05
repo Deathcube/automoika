@@ -1,11 +1,15 @@
 <?php
     session_start();
-    require_once "connect.php";
+    require_once "DB.php";
 
     $id_coffee = $_POST["id"];
     $id_client = $_SESSION["id_user"];
 
     $time = date("Y-m-d");
+
+    foreach ($_POST['main_service_check_box']){
+        
+    }
 
     $db = new DB();
     $db = $db->connectDB();

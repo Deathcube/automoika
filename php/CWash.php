@@ -71,8 +71,17 @@ class CWash
 
     function resultMainServicesContent($mainServiceData, $carsData) {
         $content = null;
+        $i = 0;
         foreach ($mainServiceData as $mainService) {
-
+            $i++;
+            $content .= '<div class="row">
+                    <div class="namesell sc">'.$mainService['description'].'</div>
+                    <div class="sell sc">'.$mainService['base_price'] * $carsData[0]['price_rate'].'</div>
+                    <div class="sell sc">'.$mainService['base_price'] * $carsData[1]['price_rate'].'</div>
+                    <div class="sell sc">'.$mainService['base_price'] * $carsData[2]['price_rate'].'</div>
+                    <div class="sell sc">'.$mainService['base_price'] * $carsData[3]['price_rate'].'</div>
+                    <div class="cbox"><input  name="main_service" id="main_service'.$i.'" type="checkbox" /></div>
+                </div><br>';
         }
 
         return $content;
@@ -80,8 +89,17 @@ class CWash
 
     function resultExtraServicesContent($extraServicesData, $carsData) {
         $content = null;
+        $i = 0;
         foreach ($extraServicesData as $extraService) {
-
+            $i++;
+            $content .= '<div class="row">
+                    <div class="namesell sc">' . $extraService['description'] . '</div>
+                    <div class="sell sc">' . $extraService['base_price'] * $carsData[0]['price_rate'] . '</div>
+                    <div class="sell sc">' . $extraService['base_price'] * $carsData[1]['price_rate'] . '</div>
+                    <div class="sell sc">' . $extraService['base_price'] * $carsData[2]['price_rate'] . '</div>
+                    <div class="sell sc">' . $extraService['base_price'] * $carsData[3]['price_rate'] . '</div>
+                    <div class="cbox"><input  name="extra_service" id="extra_service' . $i . '" type="checkbox" /></div>
+                </div><br>';
         }
 
         return $content;
@@ -89,8 +107,17 @@ class CWash
 
     function resultCleanerServicesContent($cleanerData, $carsData) {
         $content = null;
+        $i = 0;
         foreach ($cleanerData as $cleanerService) {
-
+            $i++;
+            $content .= '<div class="row">
+                    <div class="namesell sc">' . $cleanerService['description'] . '</div>
+                    <div class="sell sc">' . $cleanerService['base_price'] * $carsData[0]['price_rate'] . '</div>
+                    <div class="sell sc">' . $cleanerService['base_price'] * $carsData[1]['price_rate'] . '</div>
+                    <div class="sell sc">' . $cleanerService['base_price'] * $carsData[2]['price_rate'] . '</div>
+                    <div class="sell sc">' . $cleanerService['base_price'] * $carsData[3]['price_rate'] . '</div>
+                    <div class="cbox"><input  name="cleaner_service" id="cleaner_service' . $i . '" type="checkbox" /></div>
+                </div><br>';
         }
 
         return $content;

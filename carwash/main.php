@@ -36,7 +36,7 @@ $cw = new CWash();
                 <p class="infotext">Мы рады приветствовать Вас в нашем автомоечном комплексе. Высокое качество мойки и комфорт клиента - наши основные приоритеты . К Вашим услугам 6 автомоечных боксов и комфортная комната отдыха с бесплатным Wi-fi, где вы можете расслабиться, попробовать вкуснейший кофе и домашнюю еды. Так же работает онлайн бронирование и бронирование по телефону, чтобы Вам не пришлось ожидать очереди.</p>
             </div>
 
-            <form id="mform" method="post">
+            <form id="mform" method="post" action="../php/Order.php">
 
             <div class="table">
                 <div class="row">
@@ -74,15 +74,15 @@ $cw = new CWash();
 
                 <div class="formdata">
                     <p class="fstring">Ваше имя:
-                        <input type="text" />
+                        <input name="name" type="text" />
                     </p>
 
                     <p class="fstring">Ваше телефон:
-                        <input type="text" />
+                        <input name="phone" type="text" />
                     </p>
 
                     <p class="fstring">Дата:
-                        <input type="text" />
+                        <input name="data" type="text" />
                     </p>
                     <input type="submit" value="Записаться" />
                 </div>

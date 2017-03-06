@@ -3,7 +3,8 @@
  */
 $(document).on('ready', function () {
 
-    $isChecked = false;
+    var isChecked = false;
+    var isMainChecked = false;
 
     $('.typeA').on('click', function () {
 
@@ -14,7 +15,7 @@ $(document).on('ready', function () {
             $('.typeD').attr("disabled", true);
 
             $('.tA').css('color', 'red');
-            $isChecked = true;
+            isChecked = true;
         }
         else {
             $('.typeB').attr("disabled", false);
@@ -22,9 +23,9 @@ $(document).on('ready', function () {
             $('.typeD').attr("disabled", false);
 
             $('.tA').css('color', 'black');
-            $isChecked = false;
+            isChecked = false;
         }
-    })
+    });
 
     $('.typeB').on('click', function () {
         if($('.typeB').is(':checked'))
@@ -34,7 +35,7 @@ $(document).on('ready', function () {
             $('.typeD').attr("disabled", true);
 
             $('.tB').css('color', 'red');
-            $isChecked = true;
+            isChecked = true;
         }
         else {
             $('.typeA').attr("disabled", false);
@@ -42,9 +43,9 @@ $(document).on('ready', function () {
             $('.typeD').attr("disabled", false);
 
             $('.tB').css('color', 'black');
-            $isChecked = false;
+            isChecked = false;
         }
-    })
+    });
 
     $('.typeC').on('click', function () {
         if($('.typeC').is(':checked'))
@@ -54,7 +55,7 @@ $(document).on('ready', function () {
             $('.typeD').attr("disabled", true);
 
             $('.tC').css('color', 'red');
-            $isChecked = true;
+            isChecked = true;
         }
         else {
             $('.typeA').attr("disabled", false);
@@ -62,9 +63,9 @@ $(document).on('ready', function () {
             $('.typeD').attr("disabled", false);
 
             $('.tC').css('color', 'black');
-            $isChecked = false;
+            isChecked = false;
         }
-    })
+    });
 
     $('.typeD').on('click', function () {
         if($('.typeD').is(':checked'))
@@ -74,7 +75,7 @@ $(document).on('ready', function () {
             $('.typeC').attr("disabled", true);
 
             $('.tD').css('color', 'red');
-            $isChecked = true;
+            isChecked = true;
         }
         else {
             $('.typeA').attr("disabled", false);
@@ -82,14 +83,21 @@ $(document).on('ready', function () {
             $('.typeC').attr("disabled", false);
 
             $('.tD').css('color', 'black');
-            $isChecked = false;
+            isChecked = false;
         }
-    })
+    });
+
+    $('.tc').on('click', function () {
+        if(!$(this).is(':checked'))
+        {
+            $('.cb').attr('disabled', false);
+        }
+    });
 
     $('.cb').on('click', function () {
         if($(this).is(':checked'))
         {
-            if($isChecked == true)
+            if(isChecked == true)
             {
                 $(this).parent().css('background-color', 'green');
             }
@@ -104,11 +112,34 @@ $(document).on('ready', function () {
         }
 
         $(document).on('change', function () {
-            if($isChecked == false)
+            if(isChecked == false)
             {
                 $('.cb').attr('checked', false);
                 $('.cb').parent().css('background-color', '#446ED5');
             }
         });
-    })
+    });
+
+
+    $('.main_service').on('click', function () {
+        if($(this).is(':checked'))
+        {
+            isMainChecked = true;
+        }
+        else
+        {
+            isMainChecked = false;
+        }
+
+        if(isMainChecked == true)
+        {
+            $('.main_service').attr('disabled', true);
+            $(this).attr('disabled', false);
+        }
+        else
+        {
+            $('.main_service').attr('disabled', false);
+        }
+    });
+
 });

@@ -1,6 +1,6 @@
 <?php
 
-require_once "../php/CWash.php";
+require_once "../backend/CWash.php";
 
 $cw = new CWash();
 
@@ -24,10 +24,10 @@ $cw = new CWash();
             </div>
 
             <div class="menu">
-                <div class="mitem"><a href="#"><p>Главная</p></a></div>
+                <div class="mitem"><a href="main.php"><p>Главная</p></a></div>
                 <div class="mitem"><a href="#"><p>Запись на мойку</p></a></div>
                 <div class="mitem"><a href="#"><p>Контакты</p></a></div>
-                <div class="mitem"><a href="#"><p>Заказы</p></a></div>
+                <div class="mitem"><a href="order.html"><p>Заказы</p></a></div>
             </div>
         </div>
 
@@ -36,15 +36,15 @@ $cw = new CWash();
                 <p class="infotext">Мы рады приветствовать Вас в нашем автомоечном комплексе. Высокое качество мойки и комфорт клиента - наши основные приоритеты . К Вашим услугам 6 автомоечных боксов и комфортная комната отдыха с бесплатным Wi-fi, где вы можете расслабиться, попробовать вкуснейший кофе и домашнюю еды. Так же работает онлайн бронирование и бронирование по телефону, чтобы Вам не пришлось ожидать очереди.</p>
             </div>
 
-            <form id="mform" method="post" action="../php/Order.php">
+            <form id="mform" method="post" action="../backend/Order.php">
 
             <div class="table">
                 <div class="row">
                     <div class="namesell">Наименование услуг</div>
-                    <div class="sell">Группа 1 <input  name="A" type="checkbox" /></div>
-                    <div class="sell">Группа 2 <input  name="B" type="checkbox" /></div>
-                    <div class="sell">Группа 3 <input  name="C" type="checkbox" /></div>
-                    <div class="sell">Группа 4 <input  name="D" type="checkbox" /></div>
+                    <div class="sell">Группа 1 <input class="typeA" name="A" type="checkbox" /></div>
+                    <div class="sell">Группа 2 <input class="typeB" name="B" type="checkbox" /></div>
+                    <div class="sell">Группа 3 <input class="typeC" name="C" type="checkbox" /></div>
+                    <div class="sell">Группа 4 <input class="typeD" name="D" type="checkbox" /></div>
                     <div class="cbox"></div>
                 </div>
 
@@ -74,15 +74,15 @@ $cw = new CWash();
 
                 <div class="formdata">
                     <p class="fstring">Ваше имя:
-                        <input name="name" type="text" />
+                        <input name="name" type="text" required />
                     </p>
 
                     <p class="fstring">Ваше телефон:
-                        <input name="phone" type="text" />
+                        <input name="phone" type="text" required />
                     </p>
 
                     <p class="fstring">Дата:
-                        <input name="date" type="text" />
+                        <input name="date" type="text" required />
                     </p>
                     <input type="submit" value="Записаться" />
                 </div>
@@ -106,5 +106,8 @@ $cw = new CWash();
             <p>Все права защищены &copy</p>
         </div>
     </div>
+
+     <script src="../js/jquery.js" type="text/javascript"></script>
+    <script src="../js/gears.js" type="text/javascript"></script>
 </body>
 </html>

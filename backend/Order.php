@@ -1,9 +1,6 @@
 <?php
     require_once "DB.php";
 
-    $a = $_POST;
-    $v = $a;
-
     $main_services = null;
     $extra_services = null;
     $cleaner_services = null;

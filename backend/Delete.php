@@ -1,5 +1,5 @@
 <?php
-    require_once "connect.php";
+    require_once "DB.php";
 
     $id_order = $_POST["id_order"];
 

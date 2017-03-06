@@ -218,3 +218,8 @@ body {
 .fstring {
     margin-bottom: 20px;
 }
+
+.selected {
+    background-color: red;
+}
+

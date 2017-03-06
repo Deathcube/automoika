@@ -24,10 +24,10 @@ $cw = new CWash();
             </div>
 
             <div class="menu">
-                <div class="mitem"><a href="#"><p>Главная</p></a></div>
+                <div class="mitem"><a href="main.php"><p>Главная</p></a></div>
                 <div class="mitem"><a href="#"><p>Запись на мойку</p></a></div>
                 <div class="mitem"><a href="#"><p>Контакты</p></a></div>
-                <div class="mitem"><a href="#"><p>Заказы</p></a></div>
+                <div class="mitem"><a href="order.html"><p>Заказы</p></a></div>
             </div>
         </div>
 
@@ -41,10 +41,10 @@ $cw = new CWash();
             <div class="table">
                 <div class="row">
                     <div class="namesell">Наименование услуг</div>
-                    <div class="sell">Группа 1 <input  type="checkbox" /></div>
-                    <div class="sell">Группа 2 <input  type="checkbox" /></div>
-                    <div class="sell">Группа 3 <input  type="checkbox" /></div>
-                    <div class="sell">Группа 4 <input  type="checkbox" /></div>
+                    <div class="sell">Группа 1 <input class="typeA" type="checkbox" /></div>
+                    <div class="sell">Группа 2 <input class="typeB" type="checkbox" /></div>
+                    <div class="sell">Группа 3 <input class="typeC" type="checkbox" /></div>
+                    <div class="sell">Группа 4 <input class="typeD" type="checkbox" /></div>
                     <div class="cbox"></div>
                 </div>
 
@@ -74,15 +74,15 @@ $cw = new CWash();
 
                 <div class="formdata">
                     <p class="fstring">Ваше имя:
-                        <input name="name" type="text" />
+                        <input name="name" type="text" required />
                     </p>
 
                     <p class="fstring">Ваше телефон:
-                        <input name="phone" type="text" />
+                        <input name="phone" type="text" required />
                     </p>
 
                     <p class="fstring">Дата:
-                        <input name="data" type="text" />
+                        <input name="data" type="text" required />
                     </p>
                     <input type="submit" value="Записаться" />
                 </div>
@@ -106,5 +106,8 @@ $cw = new CWash();
             <p>Все права защищены &copy</p>
         </div>
     </div>
+
+     <script src="../js/jquery.js" type="text/javascript"></script>
+    <script src="../js/gears.js" type="text/javascript"></script>
 </body>
 </html>

@@ -1,0 +1,41 @@
+
+.ordersWrapper {
+    width: 90%;
+    margin: 30px auto;
+    background-color: white;
+}
+
+.singleOrder {
+    width: 100%;
+    float: left;
+    margin-bottom: 20px;
+}
+
+.userData {
+    width: 26%;
+    background-color: #99D5EA;
+    float: left;
+}
+
+.userServises {
+    width: 73%;
+    margin-left: 1%;
+    float: left;
+}
+
+.item {
+    width: 31%;
+    margin: 1% 1%;
+    float: left;
+    background-color: white;
+}
+
+.uf {
+    margin-bottom: 10px;
+}
+
+.otext {
+    font-size: 0.9em;
+    margin-bottom: 4px;
+    font-family: 'Arvo';
+}

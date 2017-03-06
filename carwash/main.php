@@ -25,7 +25,6 @@ $cw = new CWash();
 
             <div class="menu">
                 <div class="mitem"><a href="main.php"><p>Главная</p></a></div>
-                <div class="mitem"><a href="#"><p>Запись на мойку</p></a></div>
                 <div class="mitem"><a href="#"><p>Контакты</p></a></div>
                 <div class="mitem"><a href="order.html"><p>Заказы</p></a></div>
             </div>
@@ -41,10 +40,10 @@ $cw = new CWash();
             <div class="table">
                 <div class="row">
                     <div class="namesell">Наименование услуг</div>
-                    <div class="sell">Группа 1 <input class="typeA" name="A" type="checkbox" /></div>
-                    <div class="sell">Группа 2 <input class="typeB" name="B" type="checkbox" /></div>
-                    <div class="sell">Группа 3 <input class="typeC" name="C" type="checkbox" /></div>
-                    <div class="sell">Группа 4 <input class="typeD" name="D" type="checkbox" /></div>
+                    <div class="sell">Группа 1 <input class="typeA tc" name="A" type="checkbox" /></div>
+                    <div class="sell">Группа 2 <input class="typeB tc" name="B" type="checkbox" /></div>
+                    <div class="sell">Группа 3 <input class="typeC tc" name="C" type="checkbox" /></div>
+                    <div class="sell">Группа 4 <input class="typeD tc" name="D" type="checkbox" /></div>
                     <div class="cbox"></div>
                 </div>
 

@@ -80,7 +80,7 @@ class CWash
                     <div class="sell sc tB">'.$mainService['base_price'] * $carsData[1]['price_rate'].'</div>
                     <div class="sell sc tC">'.$mainService['base_price'] * $carsData[2]['price_rate'].'</div>
                     <div class="sell sc tD">'.$mainService['base_price'] * $carsData[3]['price_rate'].'</div>
-                    <div class="cbox"><input class="cb main_service" name="main_service" id="main_service'.$i.'" type="checkbox" /></div>
+                    <div class="cbox"><input class="cb main_service" name="main_service' . $i . '" type="checkbox" /></div>
                 </div><br>';
         }
 
@@ -98,7 +98,7 @@ class CWash
                     <div class="sell sc tB">' . $extraService['base_price'] * $carsData[1]['price_rate'] . '</div>
                     <div class="sell sc tC">' . $extraService['base_price'] * $carsData[2]['price_rate'] . '</div>
                     <div class="sell sc tD">' . $extraService['base_price'] * $carsData[3]['price_rate'] . '</div>
-                    <div class="cbox"><input class="cb extra_service" name="extra_service" id="extra_service' . $i . '" type="checkbox" /></div>
+                    <div class="cbox"><input class="cb extra_service" name="extra_service' . $i . '" type="checkbox" /></div>
                 </div><br>';
         }
 
@@ -116,7 +116,7 @@ class CWash
                     <div class="sell sc tB">' . $cleanerService['base_price'] * $carsData[1]['price_rate'] . '</div>
                     <div class="sell sc tC">' . $cleanerService['base_price'] * $carsData[2]['price_rate'] . '</div>
                     <div class="sell sc tD">' . $cleanerService['base_price'] * $carsData[3]['price_rate'] . '</div>
-                    <div class="cbox"><input class="cb cleaner_service"  name="cleaner_service" id="cleaner_service' . $i . '" type="checkbox" /></div>
+                    <div class="cbox"><input class="cb cleaner_service"  name="cleaner_service' . $i . '" type="checkbox" /></div>
                 </div><br>';
         }
 

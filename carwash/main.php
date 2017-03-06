@@ -82,7 +82,7 @@ $cw = new CWash();
                     </p>
 
                     <p class="fstring">Дата:
-                        <input name="data" type="text" required />
+                        <input name="date" type="text" required />
                     </p>
                     <input type="submit" value="Записаться" />
                 </div>

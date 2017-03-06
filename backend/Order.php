@@ -1,6 +1,8 @@
 <?php
     require_once "DB.php";
 
+    ini_set('display_errors', 1);
+
     $main_services = null;
     $extra_services = null;
     $cleaner_services = null;

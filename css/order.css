@@ -24,8 +24,9 @@
 }
 
 .item {
-    width: 31%;
-    margin: 1% 1%;
+    width: 98%;
+    margin: 2% 1%;
+    margin-top: 0;
     float: left;
     background-color: white;
 }
@@ -38,4 +39,9 @@
     font-size: 0.9em;
     margin-bottom: 4px;
     font-family: 'Arvo';
+}
+
+.sum {
+    padding-top: 10px;
+    text-indent: 5px;
 }

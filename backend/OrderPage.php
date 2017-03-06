@@ -1,109 +1,153 @@
 <?php
-    require_once "connect.php";
-    session_start();
+    require_once "DB.php";
 
-class OrderedCoffee
+class OrderPage
 {
-    function getAllClientCoffee()
-    {
-        $db = $this->connectToDB();
-        $id_client = $_SESSION["id_user"];
-        $sql = "SELECT `buying`.`id_coffee`
-                      FROM `buying`
-                        WHERE `buying`.`id_client` = ?";
-        $stmt = $db->prepare($sql);
-        $stmt->execute(array($id_client));
+    private function getCarPriceRateByType($type) {
 
-        $result = $stmt->FETCHALL(PDO::FETCH_NUM);
-        $array = null;
-        foreach($result as $key => $str)
-        {
-            $array[$key] = $str[0];
+        if(!$type){
+            return;
         }
-        return $array;
-    }
 
-    function getAllCoffeeData()
-    {
-        $id_client = $_SESSION["id_user"];
+        $db = DB::dbConnect();
+        $array = array(
+            "type" => $type
+        );
 
-        $db = $this->connectToDB();
+        $sql = "SELECT `price_rate`
+                  FROM `cars`
+                    WHERE `type` = :type";
 
-        $sql = "SELECT `coffee`.`id_coffee`, `coffee`.`id_coffee`, `coffee`.`coffeeName`, `coffee`.`img`, `coffee`.`price`, `producer`.`producerName`, `producer`.`location`, `buying`.`id_order`
-                      FROM `coffee`,`producer`, `buying`
-                        WHERE `coffee`.`id_producer` = `producer`.`id_producer` AND
-                        		`coffee`.`id_coffee` = `buying`.`id_coffee` AND
-                                `buying`.`id_client` = ?
-                               ORDER BY `coffee`.`coffeeName`";
         $stmt = $db->prepare($sql);
-        $stmt->execute(array($id_client));
+        $stmt->execute($array);
 
         $result = $stmt->FETCHALL(PDO::FETCH_ASSOC);
-        $array = null;
-        $i = 0;
-        foreach ($result as $coffee) {
-            $array[$i][$coffee["coffeeName"]]["price"] = $coffee["price"];
-            $array[$i][$coffee["coffeeName"]]["producerName"] = $coffee["producerName"];
-            $array[$i][$coffee["coffeeName"]]["location"] = $coffee["location"];
-            $array[$i][$coffee["coffeeName"]]["img"] = $coffee["img"];
-            $array[$i][$coffee["coffeeName"]]["id_order"] = $coffee["id_order"];
-            $array[$i][$coffee["coffeeName"]]["id_coffee"] = $coffee["id_coffee"];
-            $i++;
-        }
-        return $array;
+
+        return $result[0]['price_rate'];
     }
 
-    function getAllIngredients()
+    public function getAllOrders()
     {
-        $db = $this->connectToDB();
-        $allOrders = $this->getAllClientCoffee();
-        $array = null;
-        foreach($allOrders as $key => $id)
-        {
-                $sql = "SELECT `ingredients`.`ingredientName`
-                            FROM `ingredients`
-                                WHERE `ingredients`.`idIngredient` IN
-                                    (SELECT `ingredientInCoffee`.`id_ingredient`
-                                        FROM `ingredientInCoffee`
-                                            WHERE `ingredientInCoffee`.`id_coffee` = ?)";
+        $db = DB::dbConnect();
+        $sql = "SELECT *
+                  FROM `order`";
+
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+
+        $result = $stmt->FETCHALL(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+
+    private function getMainServiceDataById($id = null){
+
+        if($id == null){
+            return;
+        }
+
+        $db = DB::dbConnect();
+
+
+        $array = array(
+            "id" => $id
+        );
+
+        $sql = "SELECT *
+                  FROM `main_services`
+                    WHERE `id` = :id";
+
+        $stmt = $db->prepare($sql);
+        $stmt->execute($array);
+
+        $result = $stmt->FETCHALL(PDO::FETCH_ASSOC);
+
+        return $result[0];
+    }
+
+    private function getExtraServicesDataByIds($IDs){
+
+        if($IDs == null){
+            return;
+        }
+
+        $db = DB::dbConnect();
+
+        $services_ids = array_filter(explode(';', $IDs));
+
+        $result = null;
+        foreach ($services_ids as $service_id){
+            $array = array(
+                "id" => $service_id
+            );
+
+            $sql = "SELECT *
+                  FROM `extra_services`
+                    WHERE `id` = :id";
+
             $stmt = $db->prepare($sql);
-            $stmt->execute(array($id));
-            $result = $stmt->FETCHALL(PDO::FETCH_NUM);
-            foreach($result as $k => $val)
-            {
-                $array[$id][$k] = $val[0];
-            }
+            $stmt->execute($array);
+
+            $result[] = $stmt->FETCHALL(PDO::FETCH_ASSOC);
         }
-        return $array;// массив id кофе которые имеют массив ингредиентов
+
+        return $result;
     }
 
-    function getAllContent() {
-        return $this->resultContent($this->getAllCoffeeData(), $this->getAllIngredients());
+    private function getCleanerServicesDataByIds($IDs){
+
+        if($IDs == null){
+            return;
+        }
+
+        $db = DB::dbConnect();
+
+        $cleaner_ids = array_filter(explode(';', $IDs));
+
+        $result = null;
+        foreach ($cleaner_ids as $cleaner_id){
+            $array = array(
+                "id" => $cleaner_id
+            );
+
+            $sql = "SELECT *
+                  FROM `cleaner`
+                    WHERE `id` = :id";
+
+            $stmt = $db->prepare($sql);
+            $stmt->execute($array);
+
+            $result[] = $stmt->FETCHALL(PDO::FETCH_ASSOC);
+        }
+
+        return $result;
     }
 
-    function resultContent($coffeeData, $coffeeIngredients) {
-        $content = null;
-        foreach($coffeeData as $i => $array){
-            foreach($array as $coffeeName => $coffeeContent) {
-                $content .= "<div class=\"item animated\" >
-                                <div class=\"bIcon\" id=".$coffeeContent["id_order"].">
-                                    <img class=\"bImg\" src=" . $coffeeContent["img"] . " />
-                                    <p class=\"price\" id=" . $coffeeContent["price"] . " <span class=\"unic_price\">" . $coffeeContent["price"] . "</span> &#8381;</p>
-                                    <p class=\"del bp\" id=" . $coffeeContent["id_coffee"] . ">Исключить</p>
-                                </div>
-                                <div class=\"bAbout\">
-                                    <p class=\"about\">Название:<span>" . $coffeeName . "</span></p>
-                                    <p class=\"about\">Производитель:</br><span>" . $coffeeContent["location"] . "</span></p>
-                                    <p class=\"about\">Состав:<span><br>";
-                                    foreach ($coffeeIngredients[$coffeeContent["id_coffee"]] as $ingredient) {
-                                        $content .= $ingredient . "  ";
-                                    }
-                $content .= "</span></p>
-                                    <p class=\"about\">Изготовлено:<span><br>" . $coffeeContent["producerName"] . "</span></p>
-                                </div>
-                            </div>";
+    public function manageOrderDBData(){
+        $orders = $this->getAllOrders();
+
+        foreach ($orders as $id => $order) {
+            // invisible input with order id
+            $totalOrderPrice = 0;
+            $carPriceRate = $this->getCarPriceRateByType($order['car']);
+            $main_service = $this->getMainServiceDataById($order['main_service']);
+            $totalOrderPrice += $main_service['base_price'] * $carPriceRate;
+            $extra_services = $this->getExtraServicesDataByIds($order['extra_services']);
+            $cleaner_services = $this->getCleanerServicesDataByIds($order['cleaner']);
+
+            foreach ($extra_services as $extra_service){
+                $extra_service = $extra_service[0];
+                $totalOrderPrice += $extra_service['base_price'] * $carPriceRate;
+
             }
+
+            foreach ($cleaner_services as $cleaner_service){
+                $cleaner_service = $cleaner_service[0];
+                $totalOrderPrice += $cleaner_service['base_price'] * $carPriceRate;
+
+            }
+
+
         }
-        return $content;
     }
 }

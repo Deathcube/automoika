@@ -3,7 +3,30 @@ require_once "DB.php";
 
 class CWash
 {
-    function getMainServicesData() {
+
+    /**
+     *  public functions which return table content in html format
+     */
+    public function getMainServiceTableContent() {
+        return $this->resultMainServicesContent($this->getMainServicesData(), $this->getCarsPriceRate());
+    }
+
+    public function getExtraServiceTableContent() {
+        return $this->resultExtraServicesContent($this->getExtraServicesData(), $this->getCarsPriceRate());
+    }
+
+    public function getCleanerServiceTableContent() {
+        return $this->resultCleanerServicesContent($this->getCleanerServicesData(), $this->getCarsPriceRate());
+    }
+
+
+
+
+
+    /**
+     *  private functions which manage all table contents
+     */
+    private function getMainServicesData() {
         $db = DB::dbConnect();
 
         $sql = "SELECT *
@@ -16,7 +39,7 @@ class CWash
         return $result;
     }
 
-    function getExtraServicesData() {
+    private function getExtraServicesData() {
         $db = DB::dbConnect();
 
         $sql = "SELECT *
@@ -29,7 +52,7 @@ class CWash
         return $result;
     }
 
-    function getCleanerServicesData() {
+    private function getCleanerServicesData() {
         $db = DB::dbConnect();
 
         $sql = "SELECT *
@@ -42,7 +65,7 @@ class CWash
         return $result;
     }
 
-    function getCarsPriceRate() {
+    private function getCarsPriceRate() {
         $db = DB::dbConnect();
 
         $sql = "SELECT *
@@ -55,21 +78,7 @@ class CWash
         return $result;
     }
 
-
-
-    function getMainServiceTableContent() {
-        return $this->resultMainServicesContent($this->getMainServicesData(), $this->getCarsPriceRate());
-    }
-
-    function getExtraServiceTableContent() {
-        return $this->resultExtraServicesContent($this->getExtraServicesData(), $this->getCarsPriceRate());
-    }
-
-    function getCleanerServiceTableContent() {
-        return $this->resultCleanerServicesContent($this->getCleanerServicesData(), $this->getCarsPriceRate());
-    }
-
-    function resultMainServicesContent($mainServiceData, $carsData) {
+    private function resultMainServicesContent($mainServiceData, $carsData) {
         $content = null;
         $i = 0;
         foreach ($mainServiceData as $mainService) {
@@ -87,7 +96,7 @@ class CWash
         return $content;
     }
 
-    function resultExtraServicesContent($extraServicesData, $carsData) {
+    private function resultExtraServicesContent($extraServicesData, $carsData) {
         $content = null;
         $i = 0;
         foreach ($extraServicesData as $extraService) {
@@ -105,7 +114,7 @@ class CWash
         return $content;
     }
 
-    function resultCleanerServicesContent($cleanerData, $carsData) {
+    private function resultCleanerServicesContent($cleanerData, $carsData) {
         $content = null;
         $i = 0;
         foreach ($cleanerData as $cleanerService) {

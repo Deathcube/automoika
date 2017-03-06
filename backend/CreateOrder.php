@@ -3,7 +3,7 @@
 
     ini_set('display_errors', 1);
 
-    $main_services = null;
+    $main_service = null;
     $extra_services = null;
     $cleaner_services = null;
     $car = 'A';
@@ -15,7 +15,7 @@
 
         if(strstr($item, 'main_service')){
             $id = substr($item, 12, strlen($item));
-            $main_services .= $id.";";
+            $main_service = $id;
         }
 
         if(strstr($item, 'cleaner_service')){
@@ -37,7 +37,7 @@
     $db = $db->dbConnect();
 
     $array = array(
-        "main_services" => $main_services,
+        "main_service" => $main_service,
         "cleaner" => $cleaner_services,
         "extra_services" => $extra_services,
         "username" => $name,

@@ -80,7 +80,7 @@ class CWash
                     <div class="sell sc">'.$mainService['base_price'] * $carsData[1]['price_rate'].'</div>
                     <div class="sell sc">'.$mainService['base_price'] * $carsData[2]['price_rate'].'</div>
                     <div class="sell sc">'.$mainService['base_price'] * $carsData[3]['price_rate'].'</div>
-                    <div class="cbox"><input  name="main_service" id="main_service'.$i.'" type="checkbox" /></div>
+                    <div class="cbox"><input  name="main_service' . $i . '" type="checkbox" /></div>
                 </div><br>';
         }
 
@@ -98,7 +98,7 @@ class CWash
                     <div class="sell sc">' . $extraService['base_price'] * $carsData[1]['price_rate'] . '</div>
                     <div class="sell sc">' . $extraService['base_price'] * $carsData[2]['price_rate'] . '</div>
                     <div class="sell sc">' . $extraService['base_price'] * $carsData[3]['price_rate'] . '</div>
-                    <div class="cbox"><input  name="extra_service" id="extra_service' . $i . '" type="checkbox" /></div>
+                    <div class="cbox"><input  name="extra_service' . $i . '" type="checkbox" /></div>
                 </div><br>';
         }
 
@@ -116,7 +116,7 @@ class CWash
                     <div class="sell sc">' . $cleanerService['base_price'] * $carsData[1]['price_rate'] . '</div>
                     <div class="sell sc">' . $cleanerService['base_price'] * $carsData[2]['price_rate'] . '</div>
                     <div class="sell sc">' . $cleanerService['base_price'] * $carsData[3]['price_rate'] . '</div>
-                    <div class="cbox"><input  name="cleaner_service" id="cleaner_service' . $i . '" type="checkbox" /></div>
+                    <div class="cbox"><input  name="cleaner_service' . $i . '" type="checkbox" /></div>
                 </div><br>';
         }
 

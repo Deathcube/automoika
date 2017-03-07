@@ -1,10 +1,6 @@
 <?php
-
-require_once "../backend/CWash.php";
-
-$cw = new CWash();
-
-
+    require_once "../backend/CWash.php";
+    $cw = new CWash();
 ?>
 
 
@@ -26,7 +22,7 @@ $cw = new CWash();
             <div class="menu">
                 <div class="mitem"><a href="main.php"><p>Главная</p></a></div>
                 <div class="mitem"><a href="#"><p>Контакты</p></a></div>
-                <div class="mitem"><a href="order.html"><p>Заказы</p></a></div>
+                <div class="mitem"><a href="order.php"><p>Заказы</p></a></div>
             </div>
         </div>
 
@@ -35,7 +31,7 @@ $cw = new CWash();
                 <p class="infotext">Мы рады приветствовать Вас в нашем автомоечном комплексе. Высокое качество мойки и комфорт клиента - наши основные приоритеты . К Вашим услугам 6 автомоечных боксов и комфортная комната отдыха с бесплатным Wi-fi, где вы можете расслабиться, попробовать вкуснейший кофе и домашнюю еды. Так же работает онлайн бронирование и бронирование по телефону, чтобы Вам не пришлось ожидать очереди.</p>
             </div>
 
-            <form id="mform" method="post" action="../backend/Order.php">
+            <form id="mform" method="post" action="../backend/CreateOrder.php">
 
             <div class="table">
                 <div class="row">

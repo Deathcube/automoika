@@ -47,7 +47,9 @@
     );
 
     $sql = "INSERT INTO `automoika`.`order`(`main_service`,`cleaner`,`extra_services`,`username`,`phone`,`date`,`car`) 
-                  VALUES(:main_services, :cleaner, :extra_services, :username, :phone, :date, :car)";
+                  VALUES(:main_service, :cleaner, :extra_services, :username, :phone, :date, :car)";
 
     $stmt = $db->prepare($sql);
     $stmt->execute($array);
+
+    header('Location: ../carwash/order.php');

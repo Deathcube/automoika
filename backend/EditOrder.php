@@ -1,16 +1,25 @@
 <?php
     require_once "DB.php";
 
-    $id_order = $_POST["id_order"];
+    $order_id = $_POST["order_id"];
+
+    $username = $_POST["userName"];
+    $date = $_POST["userDate"];
+    $phone = $_POST["userPhone"];
 
     $db = new DB();
     $db = $db->dbConnect();
 
     $array = array(
-        "id_order" => $id_order,
+        "order_id" => $order_id,
+        "username" => $username,
+        "date" => $date,
+        "phone" => $phone,
     );
 
-    $sql = "DELETE FROM `order` WHERE `id` = :id_order)";
+    $sql = "UPDATE `order` SET `username` = :username, `date` = :date, `phone` = :phone WHERE `id` = :order_id";
 
     $stmt = $db->prepare($sql);
     $stmt->execute($array);
+
+    header('Location: ../carwash/order.php');
